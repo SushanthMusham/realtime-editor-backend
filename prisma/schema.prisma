@@ -25,8 +25,9 @@ model Document {
   id        String   @id @default(uuid())
   title     String
   content   String   @default("")
-  ownerId   String
-  owner     User     @relation(fields: [ownerId], references: [id])
+  owner   User?   @relation(fields: [ownerId], references: [id])
+ownerId String? 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
